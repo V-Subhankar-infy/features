@@ -26,6 +26,10 @@ Installs the Nix package manager and optionally a set of packages.
 
 This Feature should work on recent versions of Debian/Ubuntu, RedHat Enterprise Linux, Fedora, RockyLinux, and Alpine Linux.
 
+## Nix store persistence
+
+In versions before 1.4.0, a rebuild could keep the Nix store from the first build, so option changes might not fully take effect. You can patch this at runtime from `postCreateCommand`, which runs after the store is attached, using `nix-env` to install missing packages or appending to `/etc/nix/nix.conf` for config, but it has to be repeated after every rebuild. Use 1.4.0 or later to avoid it; leftover `nix-store-*` volumes are unused and safe to delete.
+
 ## Location of Flakes
 
 Currently `flakeUri` works best with a remote URI (e.g., `github:nixos/nixpkgs/nixpkgs-unstable#hello`) as local files need to be in the image.
