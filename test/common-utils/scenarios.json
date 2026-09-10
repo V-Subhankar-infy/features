@@ -13,13 +13,6 @@
             "common-utils": {}
         }
     },    
-    "bullseye": {
-        "image": "debian:bullseye",
-        "remoteUser": "devcontainer",
-        "features": {
-            "common-utils": {}
-        }
-    },
     "bookworm": {
         "image": "debian:bookworm",
         "remoteUser": "devcontainer",
@@ -114,7 +107,7 @@
         }
     },
     "alternate-values": {
-        "image": "debian:bullseye",
+        "image": "debian:bookworm",
         "features": {
             "common-utils": {
                 "username": "alternate",
@@ -127,7 +120,7 @@
         }
     },
     "username-default": {
-        "image": "debian:bullseye",
+        "image": "debian:bookworm",
         "features": {
             "common-utils": {}
         }
@@ -166,7 +159,7 @@
         }
     },
     "configure_zsh_no_template_first_step": {
-        "image": "debian:bullseye",
+        "image": "debian:bookworm",
         "remoteUser": "devcontainer",
         "features": {
             "common-utils": {
