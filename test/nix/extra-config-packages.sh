@@ -8,4 +8,4 @@ check "Experimental features config" grep -E '^experimental-features = nix-comma
 check "hello_installed" type hello
 check "hello_in_default_profile" bash -lc "nix-env -p /nix/var/nix/profiles/default -q | grep -q '^hello'"
 
-reportResults &2>1
+reportResults
