@@ -4,7 +4,7 @@ This Feature should work on recent versions of Debian/Ubuntu, RedHat Enterprise 
 
 ## Nix store persistence
 
-In versions before 1.4.0, a rebuild could keep the Nix store from the first build, so option changes might not fully take effect. You can patch this at runtime from `postCreateCommand`, which runs after the store is attached, using `nix-env` to install missing packages or appending to `/etc/nix/nix.conf` for config, but it has to be repeated after every rebuild. Use 1.4.0 or later to avoid it; leftover `nix-store-*` volumes are unused and safe to delete.
+On 1.3.x, option changes may not be reflected after a rebuild, because `/nix` is mounted from a Docker volume that keeps the store built the first time. Either install packages from `postCreateCommand` with `nix-env` so they land in that volume, or upgrade to 1.4.0 or later, which drops the mount.
 
 ## Location of Flakes
 
